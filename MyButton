@@ -1,0 +1,55 @@
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+public class Main extends JFrame implements ActionListener{
+
+    JButton buton;
+    JLabel label;
+       Main(){
+           ImageIcon icon = new ImageIcon("dude.png");
+           ImageIcon icon2 = new ImageIcon("point.png");
+           
+           label = new JLabel();
+           label.setIcon(icon2);
+           label.setBounds(150,250,150,150);
+           label.setVisible(false);
+           JButton buton = new JButton();
+           buton.setBounds(200,100,200,50);
+           buton.addActionListener(e -> System.out.println("Hello user :D"));
+           buton.setText("I'm a button!");
+           buton.setFocusable(false);
+           buton.setIcon(icon);
+           buton.setHorizontalTextPosition(JButton.CENTER);
+           buton.setVerticalTextPosition(JButton.BOTTOM);
+           buton.setFont(new Font("Comic Sans",Font.BOLD,25));
+           buton.setIconTextGap(-15);
+           buton.setForeground(Color.cyan);
+           buton.setBackground(Color.pink);
+           buton.setBorder(BorderFactory.createEtchedBorder());
+           
+       this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);   
+                          this.setSize(500,500);    
+                            this.setLayout(null);
+                               this.setVisible(true);  
+                               this.add(buton);
+                               this.add(label);
+       }
+       public void actionPerformed(ActionEvent e){
+           if(e.getSource() == buton){
+               //System.out.println("Hello user :D");
+               //buton.setEnabled(false);
+               label.setVisible(true);
+           }
+       }
+}
+public class Gui {
+    public static void main(String[] args) {
+         new framems(); 
+    }}
