@@ -1,0 +1,65 @@
+package javaapplication334;
+
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Random;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+         public class JavaApplication334 extends JFrame {
+   private int number;
+    private JTextField tahmin;
+    private JLabel sonuc;
+    private JButton buton;
+
+    public JavaApplication334() {
+        Random rand = new Random();
+        number = rand.nextInt(100) + 1; // 1 ile 100 arasında bir sayı
+
+        JFrame frame = new JFrame("Sayı Tahmin Oyunu");
+        frame.setSize(300, 200);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(null);
+
+        tahmin = new JTextField();
+        tahmin.setBounds(50, 30, 200, 30);
+        frame.add(tahmin);
+
+        sonuc = new JLabel("Tahmininizi girin:");
+        sonuc.setBounds(50, 70, 200, 30);
+        frame.add(sonuc);
+
+        buton = new JButton("Tahmin Et");
+        buton.setBounds(100, 110, 100, 30);
+        frame.add(buton);
+
+        buton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    int userGuess = Integer.parseInt(tahmin.getText());
+                    if (userGuess < number) {
+                        sonuc.setText("Daha yüksek bir sayı tahmin edin");
+                    } else if (userGuess > number) {
+                        sonuc.setText("Daha düşük bir sayı tahmin edin");
+                    } else {
+                        sonuc.setText("Doğru Tahminn :D");
+                    }
+                } catch (NumberFormatException ex) {
+                    sonuc.setText("Geçerli bir sayı girin.");
+                }
+            }
+        });
+
+        frame.setVisible(true);
+    }
+
+    public static void main(String[] args) {
+         JavaApplication334 tmp = new JavaApplication334();
+        tmp.setVisible(true);
+    }
+}
