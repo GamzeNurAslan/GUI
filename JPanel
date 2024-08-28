@@ -1,0 +1,51 @@
+import javax.swing.JFrame;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+
+public class Main{
+public static void main(String [] args){
+ImageIcon icon = new ImageIcon("dude.png");
+                                   
+  JLabel label = new JLabel();
+  label.setText("Hello");
+  label.setIcon(icon);
+  //label.setVerticalAlignment(JLabel.TOP);
+  label.setVerticalAlignment(JLabel.BOTTOM);
+  label.setHorizontalAlignment(JLabel.RIGHT);
+  label.setBounds(0,0,75,75);
+                                   
+          JPanel pinkpnl = new JPanel();
+          pinkpnl.setBackground(Color.pink);
+          pinkpnl.setBounds(0,0,250,250);
+          pinkpnl.setLayout(new BorderLayout());
+                                   
+                  JPanel bluepnl = new JPanel();
+                  bluepnl.setBackground(Color.blue);
+                  bluepnl.setBounds(250,0,250,250);
+                  bluepnl.setLayout(new BorderLayout());
+                                   
+                                   JPanel greenpnl = new JPanel();
+                                   greenpnl.setBackground(Color.green);
+                                   greenpnl.setBounds(0,250,500,250);
+                                   greenpnl.setLayout(new BorderLayout());
+                                   
+                                   JFrame frame = new JFrame();   
+                           frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);   
+                           frame.setSize(750,750);    
+                           frame.setLayout(null);
+                           frame.setVisible(true);   
+                                 pinkpnl.add(label);
+                              //  bluepnl.add(label);
+                              // greenpnl.add(label);
+                                   frame.add(pinkpnl);
+                                   frame.add(bluepnl);
+                                   frame.add(greenpnl);
+
+}}
