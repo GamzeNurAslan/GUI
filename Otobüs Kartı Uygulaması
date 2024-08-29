@@ -1,0 +1,80 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class JavaApplication334 {
+
+    private static double bakiye = 0.0;  
+
+    public static void main(String[] args) {
+        
+        JFrame f = new JFrame("Otobüs Kartı Uygulaması");
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        f.setSize(400, 200);
+        f.setLayout(new GridLayout(3, 2));
+
+        JLabel bakiyem = new JLabel("Mevcut Bakiye: " + bakiye + " TL");
+        f.add(bakiyem);
+        
+             JPanel pinkpnl = new JPanel();
+                  pinkpnl.setBackground(Color.pink);
+                       pinkpnl.setBounds(0,0,250,250);
+                            pinkpnl.setLayout(new BorderLayout());
+        
+        JTextField miktarField = new JTextField();
+        JButton yukleButton = new JButton("Yükle");
+        JButton azaltButton = new JButton("Azalt");
+        
+         yukleButton.setBackground(Color.darkGray);
+        azaltButton.setBackground(Color.darkGray);
+        
+        yukleButton.setForeground(Color.WHITE);
+        azaltButton.setForeground(Color.WHITE);
+        
+        f.add(new JLabel("Yüklemek İstediğiniz Miktar:"));
+        f.add(miktarField);
+        f.add(yukleButton);
+        f.add(azaltButton);
+        
+        yukleButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    double miktar = Double.parseDouble(miktarField.getText());
+                    if (miktar > 0) {
+                        bakiye += miktar;
+                        bakiyem.setText("Mevcut Bakiye: " + bakiye + " TL");
+                        miktarField.setText("");
+                    } else {
+                        JOptionPane.showMessageDialog(f, "Geçerli bir miktar girin.");
+                    }
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(f, "Lütfen geçerli bir sayı girin.");
+                }
+            }
+        });
+
+        azaltButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    double miktar = Double.parseDouble(miktarField.getText());
+                    if (miktar > 0 && miktar <= bakiye) {
+                        bakiye -= miktar;
+                        bakiyem.setText("Mevcut Bakiye: " + bakiye + " TL");
+                        miktarField.setText("");
+                    } else if (miktar > bakiye) {
+                        JOptionPane.showMessageDialog(f, "Yetersiz bakiye");
+                    } else {
+                        JOptionPane.showMessageDialog(f, "Geçerli bir miktar girin.");
+                    }
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(f, "Lütfen geçerli bir sayı girin.");
+                }
+            }
+        });
+        
+        f.setVisible(true);
+    }
+}
