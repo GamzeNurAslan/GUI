@@ -61,38 +61,58 @@ ________________________________________________________________________________
 JDialog Kullanarak Özel Bir Diyalog Kutusu Oluşturma(code)
 
 import javax.swing.*;
+
 import java.awt.event.*;
 
 public class JDialogOrnek extends JFrame {
+
     public JDialogOrnek() {
+    
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
         setSize(300, 200);
 
         JDialog dialog = new JDialog(this, "Kayıt Formu", true);
+        
         dialog.setSize(300, 150);
 
         JLabel labelAd = new JLabel("Adınız:");
+        
         JTextField textFieldAd = new JTextField(20);
+        
         JLabel labelYas = new JLabel("Yaşınız:");
+        
         JTextField textFieldYas = new JTextField(5);
+        
         JButton buttonKaydet = new JButton("Kaydet");
 
         JPanel panel = new JPanel();
+        
         panel.setLayout(new GridLayout(3, 2));
+        
         panel.add(labelAd);
+        
         panel.add(textFieldAd);
+        
         panel.add(labelYas);
+        
         panel.add(textFieldYas);
+        
         panel.add(buttonKaydet);
 
         dialog.add(panel);
 
         buttonKaydet.addActionListener(new ActionListener() {
+        
             @Override
             public void actionPerformed(ActionEvent e) {
+            
                 String ad = textFieldAd.getText();
+                
                 int yas = Integer.parseInt(textFieldYas.getText());
+                
                 JOptionPane.showMessageDialog(null, "Kayıt başarıyla oluşturuldu!\nAd: " + ad + "\nYaş: " + yas);
+                
                 dialog.dispose();
             }
         });
@@ -101,7 +121,9 @@ public class JDialogOrnek extends JFrame {
     }
 
     public static void main(String[] args) {
+    
         SwingUtilities.invokeLater(() -> {
+        
             new JDialogOrnek();
         });
     }
