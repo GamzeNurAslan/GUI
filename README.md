@@ -1,15 +1,25 @@
 Temel GUI Bileşenleri
+
 JFrame: Pencerenin ana çerçevesini oluşturur.
+
 JPanel: Diğer bileşenleri gruplamak için kullanılan bir kapsayıcıdır.
+
 JButton: Kullanıcının bir eylemi tetiklemesi için kullanılan butondur.
+
 JLabel: Metin veya görsel içerik göstermek için kullanılır.
+
 JTextField: Kullanıcının metin girmesini sağlar.
+
 JTextArea: Çok satırlı metin girdisi için kullanılır.
+
 JCheckBox: Evet/hayır veya birden fazla seçenekten seçim yapmak için kullanılır.
+
 JRadioButton: Bir grup seçenekten sadece birini seçmek için kullanılır.
 
 ____________JOptionPane____________
+
 1. Basit Bir Mesaj Kutusu
+   
 import javax.swing.JOptionPane;
 public class JOptionPaneOrnek {
     public static void main(String[] args) {
@@ -17,7 +27,8 @@ public class JOptionPaneOrnek {
     }
 }
 
-2. Kullanıcıdan Onay Alma
+3. Kullanıcıdan Onay Alma
+   
 int cevap = JOptionPane.showConfirmDialog(null, "Devam etmek istiyor musunuz?", "Onay", JOptionPane.YES_NO_OPTION);
 if (cevap == JOptionPane.YES_OPTION) {
     System.out.println("Evet seçildi.");
@@ -25,11 +36,13 @@ if (cevap == JOptionPane.YES_OPTION) {
     System.out.println("Hayır seçildi.");
 }
 
-3. Kullanıcıdan Bir Değer Alma
+5. Kullanıcıdan Bir Değer Alma
+   
 String isim = JOptionPane.showInputDialog(null, "Adınızı giriniz:");
 System.out.println("Merhaba, " + isim + "!");
 
-4. Seçenekli Bir Diyalog
+7. Seçenekli Bir Diyalog
+   
 String[] secenekler = {"Kırmızı", "Yeşil", "Mavi"};
 String secim = (String) JOptionPane.showInputDialog(
     null,
@@ -41,9 +54,10 @@ String secim = (String) JOptionPane.showInputDialog(
     secenekler[0]);
 System.out.println("Seçilen renk: " + secim);
 
-5. Hata Mesajı
+9. Hata Mesajı
+    
 JOptionPane.showMessageDialog(null, "Bir hata oluştu!", "Hata", JOptionPane.ERROR_MESSAGE);
-_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 JDialog Kullanarak Özel Bir Diyalog Kutusu Oluşturma(code)
 
 import javax.swing.*;
